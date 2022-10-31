@@ -1,0 +1,264 @@
+@import url('https://fonts.googleapis.com/css2?family=Goldman&family=Rubik&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Rubik', sans-serif;
+}
+
+.model {
+    display: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+body {
+    background-color: white;
+}
+
+.topo {
+    height: 55px;
+    position: relative;
+}
+
+.header {
+    height: 55px;
+    width: 100%;
+    background: #272635;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+    position: fixed;
+    z-index: 2;
+}
+
+.logo {
+    color: rgba(255, 255, 255, 0.932);
+    font-size: 1.7em;
+    position: relative;
+    cursor: pointer;
+    transition: 0.2s;
+    font-family: 'Rubik';
+    text-align: center;
+}
+
+.logo span {
+    color: #F86624;
+    font-family: 'Rubik';
+}
+
+.search {
+    position: relative;
+    width: 40%;
+}
+
+.search input {
+    height: 30px;
+    width: 100%;
+    border-radius: 10px;
+    border: none;
+    outline: none;
+    padding-left: 10px;
+    font-size: 0.9em;
+}
+
+.search input::placeholder {
+    color: rgba(0, 0, 0, 0.486);
+    letter-spacing: 0.1em;
+}
+
+.search label{
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    color: #F86624;
+    cursor: pointer;
+    padding: 6px 8px;
+    
+}
+
+.nav-items i {
+    font-size: 1.5em;
+    color: #F86624;
+    margin-right: 10px;
+    cursor: pointer;
+    transition: 0.2s;
+    position: relative;
+}
+
+.nav-items i:hover {
+    transform: scale(1.1);
+}
+
+.nav-items p {
+    position: absolute;
+    top: 60px;
+    right: 10px;
+    padding: 10px;
+    text-align: center;
+    background-color: aliceblue;
+    border-radius: 10px;
+    font-size: 0.8em;
+    display: none;
+}
+
+.nav-items > .cesta:hover + p {
+    display: block;
+}
+
+section {
+    height: 200px;
+    background-image: url(../img/section.png);
+    background-position: center;
+    background-size: cover;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    margin-bottom: 30px;
+    text-align: center;
+    cursor:default;
+}
+
+section h1 {
+    color: rgb(255, 255, 255);
+    font-family: 'Goldman';
+    text-transform: uppercase;
+    font-size: max(4vw, 50px);
+    z-index: 1;
+    letter-spacing: 0.1em;
+}
+
+section p {
+    padding-top: 20px;
+    color: #272635;
+    font-size: max(2vw, 30px);
+}
+
+.products {
+    max-width: 940px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, 300px);
+    grid-auto-rows: 450px;
+    grid-gap: 20px;
+    justify-content: center;
+}
+
+.product-image img {
+   width: 300px;
+   height: 300px;
+   object-fit: cover;
+   object-position: center;  
+}
+
+
+.product {
+    box-shadow: 0px -1px 10px rgba(0, 0, 0, 0.212);
+    border-radius: 10px;
+    overflow: hidden;
+    cursor: pointer;
+    background-color: #f1f1f1;
+    transition: 0.1s linear;
+    position: relative;
+}
+
+.product:hover {
+    transform: scale(1.01);
+    box-shadow: 0px -1px 10px rgba(0, 0, 0, 0.438)
+}
+
+.promocao::before {
+    content: '-20%';
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    background-color: #F86624;
+    padding: 4px;
+    color: white;
+    font-size: 1.2em;
+    border-radius: 4px;
+}
+
+.frete-gratis::after {
+    content: 'Frete Grátis';
+    position: absolute;
+    top: 275px;
+    left: 10px;
+    background-color: #F86624;
+    padding: 2px;
+    color: white;
+    font-size: 0.8em;
+    border-radius: 2px;
+}
+
+.product-name {
+    margin: 10px 0 0 20px;
+    color: #272635;
+}
+
+.product-price {
+    margin: 10px 0 0 20px;
+    font-weight: 700;
+    color: #272635;
+    font-size: 1.3rem;
+}
+
+.product-payments-methods, .product-prev-price {
+    margin: 10px 0 0 20px;
+    color: #F86624;
+}
+
+footer {
+    margin-top: 30px;
+    height: 50px;
+    background-color: #272635;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+footer p {
+    color: white;
+}
+
+@media (max-width: 650px) {
+    .header {
+        flex-wrap: wrap;
+        height: auto;
+        justify-content: space-between;
+        padding: 10px 10px;
+        
+    }
+
+    .search {
+        width: 100%;
+        margin-bottom: 10px;
+        order: 3;
+        margin-top: 10px;
+    }
+
+    .topo {
+        height: 102px;
+    }
+
+    section {
+        height: 125px;
+    }
+
+}
+
+@media (max-width: 470px) {
+    section h1 {
+        font-size: 2em;
+    }
+
+    section p {
+        font-size: 1.5em;
+    }
+}

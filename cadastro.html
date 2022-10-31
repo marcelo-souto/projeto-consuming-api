@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script
+      src="https://kit.fontawesome.com/425e42a5e1.js"
+      crossorigin="anonymous"
+    ></script>
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="./css/cadastro.css">
+    <title>TechStore</title>
+  </head>
+  <body>
+    <header class="header">
+      <h1 class="logo"><span>T</span>ech<span>S</span>tore</h1>
+      
+      <nav class="nav-items">
+        <i class="fa-regular fa-circle-user"></i>
+        <i class="fa-regular fa-heart"></i>
+        <i class="fa-solid fa-basket-shopping cesta"></i>
+        <p>Sua cesta está vazia</p>
+      </nav>
+    </header>
+    
+    <div class="topo"></div>
+
+    <main class="form">
+      <h1>Cadastre-se</h1>
+      <form action="">
+        <div>
+          <label for="name">Nome:</label>
+          <input id="name" type="text" data-rules="required min=2">
+          <small class="invalid-feedback"></small>
+        </div>
+        <div>
+          <label for="email">Email:</label>
+          <input id="email" type="text" data-rules="email required">
+          <small class="invalid-feedback"></small>
+        </div>
+        <div>
+          <label for="cpf">CPF:</label>
+          <input id="cpf" type="text" data-rules="cpf required">
+          <small class="invalid-feedback"></small>
+        </div>
+        <div>
+          <label for="password">Senha:</label>
+          <input id="password" type="password" data-rules="required min=8">
+          <small class="invalid-feedback"></small>
+        </div>
+        <div>
+          <button type="submit">Cadastrar</button>
+        </div>
+      </form>
+    </main>
+
+    
+    
+
+    
+    <footer>
+      <p>Criado por Marcelo Souto</p>
+    </footer>
+    <script type="module" src="./js/cadastro.js"></script>
+  </body>
+</html>
