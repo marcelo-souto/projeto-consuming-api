@@ -1,4 +1,4 @@
-fetch('https://server-marcelo676.herokuapp.com/products/list')
+fetch('https://fake-server-company.herokuapp.com/products/list')
   .then((response) => response.json())
   .then((json) => seeJson(json));
 
@@ -11,7 +11,6 @@ const seeJson = (products) => {
   const productsArea = document.querySelector('.products');
 
   products.map(({ id, image, name, price, credit }) => {
-
     const product_demo = document
       .querySelector('.model .product')
       .cloneNode(true);
@@ -23,11 +22,13 @@ const seeJson = (products) => {
     product_demo.querySelector('.product-prev-price').innerText =
       'R$ ' + (priceTreated * 1.05).toFixed(2);
     product_demo.querySelector('.product-price').innerText = price;
-    product_demo.querySelector('.product-payments-methods').innerText = credit ? calculateCredit(priceTreated) : `À vista`
+    product_demo.querySelector('.product-payments-methods').innerText = credit
+      ? calculateCredit(priceTreated)
+      : `À vista`;
 
     product_demo.addEventListener('click', () => {
-      window.location = `./product.html?product=${id}`
-    })
+      window.location = `./product.html?product=${id}`;
+    });
 
     productsArea.append(product_demo);
   });

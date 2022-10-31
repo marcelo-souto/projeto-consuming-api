@@ -1,27 +1,23 @@
 const userId = window.location.search.replace('?user=', '');
 
 const obj = fetch(
-  `https://server-marcelo676.herokuapp.com/sellers/${userId}?_embed=products`,
+  `https://fake-server-company.herokuapp.com/sellers/${userId}?_embed=products`,
 )
   .then((res) => res.json())
   .then((json) => seeJson(json));
-
-
 
 const calculateCredit = (price) => {
   const parcels = price > 500 ? 12 : 6;
   return `${parcels}x de ${(price / parcels).toFixed(2)} no cartão`;
 };
 
-
-
 const seeJson = (user) => {
   const productsArea = document.querySelector('.products');
 
-  document.querySelector('.user-name').innerHTML = user.name
-  document.querySelector('.user-email').innerHTML = user.email
-  document.querySelector('.user-cpf').innerHTML = user.cpf
-  document.querySelector('.user-senha').innerHTML = user.password
+  document.querySelector('.user-name').innerHTML = user.name;
+  document.querySelector('.user-email').innerHTML = user.email;
+  document.querySelector('.user-cpf').innerHTML = user.cpf;
+  document.querySelector('.user-senha').innerHTML = user.password;
 
   user.products.map(({ id, image, name, price, credit }) => {
     const product_demo = document

@@ -6,7 +6,7 @@ let apertou = false;
 
 async function authUser(email, senha) {
   const req = await fetch(
-    'https://server-marcelo676.herokuapp.com/sellers/list',
+    'https://fake-server-company.herokuapp.com/sellers/list',
   );
   const json = await req.json();
 
@@ -14,7 +14,7 @@ async function authUser(email, senha) {
 
   await json.map((user) => {
     if (user.email === email && user.password === senha) {
-      id = user.id
+      id = user.id;
     }
   });
 

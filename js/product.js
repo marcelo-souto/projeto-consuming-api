@@ -1,6 +1,6 @@
 const id = window.location.search.replace('?product=', '');
 
-fetch(`https://server-marcelo676.herokuapp.com/products/${id}?_expand=seller`)
+fetch(`https://fake-server-company.herokuapp.com/products/${id}?_expand=seller`)
   .then((response) => response.json())
   .then((json) => seeJson(json));
 
@@ -16,7 +16,9 @@ const seeJson = ({ id, image, name, price, credit, description, seller }) => {
   document.querySelector(
     '.product-image',
   ).style.backgroundImage = `url('${image}')`;
-  document.querySelector('.product-seller').innerText = `Vendido e entregue por ${seller.name}`
+  document.querySelector(
+    '.product-seller',
+  ).innerText = `Vendido e entregue por ${seller.name}`;
   document
     .querySelectorAll('.product-name')
     .forEach((i) => (i.innerText = name));

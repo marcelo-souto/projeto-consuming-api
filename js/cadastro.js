@@ -23,7 +23,7 @@ inputs.forEach((input, index) => {
 
 async function checkUser(email, cpf) {
   const req = await fetch(
-    'https://server-marcelo676.herokuapp.com/sellers/list',
+    'https://fake-server-company.herokuapp.com/sellers/list',
   );
   const json = await req.json();
 
@@ -59,19 +59,19 @@ btn.addEventListener('click', (e) => {
           inputs[3].value,
         );
 
-        fetch('https://server-marcelo676.herokuapp.com/sellers/create', {
+        fetch('https://fake-server-company.herokuapp.com/sellers/create', {
           method: 'POST',
           headers: {
             'content-type': 'application/json',
           },
           body: JSON.stringify(user),
-        }).then(response => response.status === 201 && (window.location.href = './login.html'))
-
-        
+        }).then(
+          (response) =>
+            response.status === 201 && (window.location.href = './login.html'),
+        );
       } else {
-        showError(inputs[1], 'Usuario já existe', 1)
-        showError(inputs[2], 'usuario já existe', 2)
-
+        showError(inputs[1], 'Usuario já existe', 1);
+        showError(inputs[2], 'usuario já existe', 2);
       }
     });
   }
