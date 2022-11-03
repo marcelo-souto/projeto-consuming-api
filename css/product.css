@@ -193,7 +193,7 @@ main {
   color: #f86624;
 }
 
-.buying-area .buttons button {
+button {
   color: white;
   padding: 10px 10px;
   width: 100%;

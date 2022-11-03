@@ -31,10 +31,30 @@
     <div class="model">
       <div class="product">
         <div class="product-image"><img src="" alt="" /></div>
-        <h3 class="product-name"></h3>
-        <small><del class="product-prev-price"></del></small>
-        <p class="product-price"></p>
-        <small class="product-payments-methods"></small>
+        <div class="product-info">
+          <div>
+            <label for="image">Imagem:</label
+            ><input id="image" class="product-image-src" disabled />
+          </div>
+          <div>
+            <label for="name">Nome:</label
+            ><input id="name" class="product-name" disabled />
+          </div>
+          <div>
+            <label for="price">Preço:</label
+            ><input id="price" class="product-price" disabled />
+          </div>
+          <div>
+            <p>Parcelamento:</p>
+            <div class="credit-options">
+
+            </div>
+          </div>
+        </div>
+        <div class="product-buttons">
+          <button class="btn1 btn-excluir">Excluir</button>
+          <button class="btn2 btn-editar">Editar</button>
+        </div>
       </div>
     </div>
 
@@ -42,14 +62,21 @@
       <article class="user-info">
         <h2>Informações</h2>
         <ul>
-          <li><p>Nome: <span class="user-name"></span></p></li>
-          <li><p>Email: <span class="user-email"></span></p></li>
-          <li><p>CPF: <span class="user-cpf"></span></p></li>
-          <li><p>Senha: <span class="user-senha"></span></p></li>
+          <li>
+            <p>Nome: <span class="user-name"></span></p>
+          </li>
+          <li>
+            <p>Email: <span class="user-email"></span></p>
+          </li>
+          <li>
+            <p>CPF: <span class="user-cpf"></span></p>
+          </li>
+          <li>
+            <p>Senha: <span class="user-senha"></span></p>
+          </li>
         </ul>
       </article>
-      <article class="products">
-      </article>
+      <article class="products-painel"></article>
     </main>
 
     <footer>

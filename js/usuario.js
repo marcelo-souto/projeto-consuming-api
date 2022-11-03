@@ -1,18 +1,30 @@
 const userId = window.location.search.replace('?user=', '');
 
-const obj = fetch(
+let data = null;
+function setData(response) {
+  data = response;
+}
+
+fetch(
   `https://fake-server-company.herokuapp.com/sellers/${userId}?_embed=products`,
 )
   .then((res) => res.json())
-  .then((json) => seeJson(json));
+  .then((json) => setData(json))
+  .then(() => seeJson(data));
 
-const calculateCredit = (price) => {
-  const parcels = price > 500 ? 12 : 6;
-  return `${parcels}x de ${(price / parcels).toFixed(2)} no cartão`;
-};
+class Product {
+  constructor(name, price, image, description, credit, sellerId) {
+    this.name = name;
+    this.price = price;
+    this.image = image;
+    this.description = description;
+    this.credit = credit;
+    this.sellerId = sellerId;
+  }
+}
 
 const seeJson = (user) => {
-  const productsArea = document.querySelector('.products');
+  const productsArea = document.querySelector('.products-painel');
 
   document.querySelector('.user-name').innerHTML = user.name;
   document.querySelector('.user-email').innerHTML = user.email;
@@ -23,20 +35,35 @@ const seeJson = (user) => {
     const product_demo = document
       .querySelector('.model .product')
       .cloneNode(true);
-    const priceTreated = Number(price.replace('R$ ', '')).toFixed(2);
 
     product_demo.setAttribute('data-product', id);
     product_demo.querySelector('.product-image img').src = image;
-    product_demo.querySelector('.product-name').innerText = name;
-    product_demo.querySelector('.product-prev-price').innerText =
-      'R$ ' + (priceTreated * 1.05).toFixed(2);
-    product_demo.querySelector('.product-price').innerText = price;
-    product_demo.querySelector('.product-payments-methods').innerText = credit
-      ? calculateCredit(priceTreated)
-      : `À vista`;
+    product_demo.querySelector('.product-image-src').value = image;
+    product_demo.querySelector('.product-name').value = name;
+    product_demo.querySelector('.product-price').value = Number(
+      price.replace('R$ ', ''),
+    ).toFixed(2);
 
-    product_demo.addEventListener('click', () => {
-      window.location = `./product.html?product=${id}`;
+    product_demo.querySelector('.credit-options',).innerHTML = 
+      `<input type="radio" id="yes${id}" name="debit${id}" value="true" checked/>
+      <label for="yes${id}">Sim</label>
+      <input type="radio" id="nao${id}" name="debit${id}" value="false"/>
+      <label for="nao${id}">Não</label>`;
+
+    product_demo.querySelector(`input[value="${credit}"]`).checked = true
+
+    const inputs = product_demo.querySelectorAll('input');
+    product_demo.querySelector('.btn-editar').addEventListener('click', (e) => {
+      const el = e.target;
+
+      if (el.classList.contains('ativo')) {
+        console.log(document.querySelector('#name').value)
+      }
+
+      el.innerText = 'Enviar';
+      el.classList.add('ativo');
+
+      inputs.forEach((input) => (input.disabled = false));
     });
 
     productsArea.append(product_demo);
